@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+          <meta charset="utf-8">
+          <title>Students-Data</title>
+    </head>
+    <style>
+        h1{
+            color:red;
+            background-color: lightcyan;
+        }
+        th,thead{
+            color: green;
+            background-color: lightpink;
+        }
+        tr,td{
+            color: black;
+            background-color: deeppink;
+        }
+        body{
+            color: red;
+            background-color: lightgreen;
+        }
+    </style>
+    <body>
+        <h1>StudentDB-Project with StudentDB-App...</h1>
+        <hr />
+        {%if studentlist %}
+            <table border="3" margin='auto'>
+                <caption> Student-Table-Details </caption>
+                <thead>
+                    <th>Names</th>
+                    <th>Marks</th>
+                </thead>
+                <tbody>
+                    {% for stud in studentlist %}
+                        <tr>
+                            <td>{{stud.name}}</td>
+                            <td>{{stud.marks}}</td>
+                        </tr>
+                    {% endfor %}
+                <</tbody>
+            </table>
+        {% else %}
+            <p>No Students Records found...</p>
+        {% endif %}
+    </body>
+</html>
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{%load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student StudentDB</title>
+    <link rel="stylesheet" href="{%static '/css/mystyles.css'%}">
+</head>
+<style>
+    h1{
+        color: red;
+        background-color: lightpink;
+    }
+    th{
+        color: blue;
+        background-color: lightskyblue;
+    }
+    td{
+        color: red;
+        background-color: lightcyan;
+    }
+    body{
+        background-color: lightgreen;
+    }
+</style>
+<body>
+    <h1>The Student Data is ::</h1>
+    <hr />
+    <br />
+    {% if studlist%}
+    <table border="2" width="350">
+        <caption>Student-Details</caption>
+        <thead>
+            <th>Student-NO</th>
+            <th>Studnet-Name</th>
+            <th>Student-Course</th>
+            <th>Sub1</th>
+            <th>Sub2</th>
+            <th>Sub3</th>
+            <th>Sub4</th>
+            <th>Sub5</th>
+            <th>Total-Marks</th>
+            <th>Total-Avg-Marks</th>
+            <th>Grade</th>
+
+        </thead>
+        <tbody>
+            {% for stud in studlist%}
+            <tr>
+                <td> {{stud.sno}}</td>
+                <td>{{stud.sname}}</td>
+                <td> {{stud.course}}</td>
+                <td> {{stud.sub1}}</td>
+                <td> {{stud.sub2}}</td>
+                <td> {{stud.sub3}}</td>
+                <td> {{stud.sub4}}</td>
+                <td> {{stud.sub5}}</td>
+                <td>{{ stud.total }}</td>
+                <td>{{ stud.avg }}</td>
+                <td>{{ stud.grade }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {%else%}
+        <p>****No Student-records found****</p>
+    {% endif %}
+
+</body>
+</html>
